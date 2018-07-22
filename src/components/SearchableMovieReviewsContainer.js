@@ -17,18 +17,25 @@ class SearchableMovieReviewsContainer extends Component {
     }
 
     setNewState = (key, newValue) => {
+        newValue === "" ? console.log("empty", newValue) : console.log("not empty", newValue)
+
         this.setState({
             [key]: newValue,
         })
     }
-    
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return this.state.reviewsArray === nextState.reviewsArray
+    }
+
     componentDidUpdate(prevProps, prevState) {
         let url = 
         `https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${this.key}&query=${this.state.searchTerm}`
-
+        
         fetch(url)
         .then(r=>r.json())
         .then(r => this.setNewState("reviewsArray",r.results))
+
     }
 
     render() {

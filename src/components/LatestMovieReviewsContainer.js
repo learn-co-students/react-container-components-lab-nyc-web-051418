@@ -30,7 +30,7 @@ class LatestMovieReviewsContainer extends Component {
     render() {
         return (
             <div className="latest-movie-reviews">
-                <h1>Latests Reviews</h1>
+                <h1>Latests Movie Reviews</h1>
                 <MovieReviews 
                     array={this.state.reviewsArray}
                     message={"LOADING"}
