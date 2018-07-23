@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
 //components
-import MovieReviews from './MovieReviewsCards';
+import MovieReviews from './ReviewList';
 
 class LatestMovieReviewsContainer extends Component {
 

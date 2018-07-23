@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'isomorphic-fetch';
 import _ from 'lodash'
 //components
-import MovieReviews from './MovieReviewsCards';
+import MovieReviews from './ReviewList';
 
 class SearchableMovieReviewsContainer extends Component {
 
