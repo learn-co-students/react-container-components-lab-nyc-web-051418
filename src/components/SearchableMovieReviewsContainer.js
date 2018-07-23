@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import 'isomorphic-fetch';
 import _ from 'lodash'
 //components
 import MovieReviews from './ReviewList';
+import SearchBar from './SearchBar';
+
 
 class SearchableMovieReviewsContainer extends Component {
 
@@ -18,8 +20,6 @@ class SearchableMovieReviewsContainer extends Component {
     }
 
     setNewState = (key, newValue) => {
-        newValue === "" ? console.log("empty", newValue) : console.log("not empty", newValue)
-
         this.setState({
             [key]: newValue,
         })
@@ -44,20 +44,25 @@ class SearchableMovieReviewsContainer extends Component {
 
     render() {
         return (
-            <div className="searchable-movie-reviews">
-                <input 
+            <Fragment>
+                <SearchBar 
                     value={this.state.searchTerm}
-                    type="text"
                     onChange={
                         e => this.setNewState("searchTerm", e.target.value)
                     }
                 />
-                
+                <br></br>
                 <MovieReviews 
-                    array={this.state.reviews}
-                    message={"No search"}
+                    array={
+                        this.state.searchTerm === "" ? 
+                            [] 
+                        : 
+                            this.state.reviews
+                    }
+                    message={""}
                 />
-            </div>
+            </Fragment>
+
         );
     }
 }

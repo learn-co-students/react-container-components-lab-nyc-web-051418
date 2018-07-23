@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import UUID from 'uuid'
 
 const Review = (props) => {
@@ -29,8 +29,8 @@ const Review = (props) => {
                         <a href={props.review.link.url} target="_blank">NYT Page</a>
                     </div>
                     <div className="description">
-                        by {props.review.byline},
-                        date: {props.review.publication_date}
+                        by {props.review.byline}
+                        {props.review.publication_date}. 
                         Summary: {validator(props.review.summary_short)}
                     </div>
             </div>
@@ -39,8 +39,13 @@ const Review = (props) => {
                     MPAA Rating: {validator(props.review.mpaa_rating)}
                     </span>
                 <span>
-                    <i className="user icon"></i>
-                    {props.review.critics_pick === 1 ? "Critics pick" : null}
+                    {props.review.critics_pick === 1 ? 
+                        <Fragment>
+                            <i className="yellow star icon"></i> 
+                            "Critics pick" 
+                        </Fragment>
+                    : 
+                        null}
                 </span>
             </div>
         </div>
