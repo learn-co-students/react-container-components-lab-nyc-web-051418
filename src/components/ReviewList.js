@@ -6,6 +6,17 @@ import Review from './Review';
 
 const MovieReviews = (props) => {
 
+    function buildList() {
+        return props.reviews.map( function(review) {
+            return (
+                <Fragment key={review.link.url}> 
+                    <Review review={review}/>
+                </Fragment> 
+
+            )
+        })
+    }
+    
     function loaded() {
         if (props.reviews === undefined) {
             return (
@@ -17,17 +28,6 @@ const MovieReviews = (props) => {
         else {
             return buildList()
         }
-    }
-
-    function buildList() {
-        return props.reviews.map( function(review) {
-            return (
-                <Fragment key={review.link.url}> 
-                    <Review review={review}/>
-                </Fragment> 
-
-            )
-        })
     }
 
     return (

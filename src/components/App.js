@@ -22,33 +22,28 @@ class App extends Component {
         }
     }
 
-    returnDisplay = () => {
-        if (this.state.searchTerm === "") {
+    returnDisplay = (header, stateItem, msg) => {
         return (
             <Fragment>
                 <h4 className="ui horizontal divider header">
                     <i className="edit icon"></i>
-                    Latests Movie Reviews
+                    {header}
                 </h4>
                 <ReviewList 
-                    reviews={this.state.latestReviews}
-                    message={"LOADING"}
+                    reviews={stateItem}
+                    message={msg}
                 />
             </Fragment>
-        )} 
+        )
+    }
+
+    selectDisplay = () => {
+        if (this.state.searchTerm === "") {
+        return this.returnDisplay("Latests Movie Reviews", this.state.latestReviews, "LOADING")
+        } 
         else {
-        return (
-            <Fragment>
-                <h4 className="ui horizontal divider header">
-                        <i className="edit icon"></i>
-                        Search Reviews
-                </h4>
-                <ReviewList 
-                    reviews={this.state.searchedReviews}
-                    message={"LOADING"}
-                />
-            </Fragment>
-        )}
+        return this.returnDisplay("Search Reviews", this.state.searchedReviews, "No results")
+        }
     }  
 
     componentDidMount() {
@@ -79,7 +74,6 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state.searchedReviews)
         return (
             <div className="app">
                 <img 
@@ -91,7 +85,7 @@ class App extends Component {
                     value={this.state.searchTerm}
                     setNewState={this.setNewState}
                 />
-                {this.returnDisplay()}
+                {this.selectDisplay()}
             </div>
         );
     }
