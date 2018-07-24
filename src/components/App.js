@@ -80,7 +80,7 @@ class App extends Component {
                     src="https://upload.wikimedia.org/wikipedia/commons/5/58/NewYorkTimes.svg" 
                     alt="logo"
                 />
-                <SearchBar 
+                <SearchBar
                     value={this.state.searchTerm}
                     setNewState={this.setNewState}
                 />

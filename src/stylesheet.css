@@ -6,8 +6,8 @@
     transform: scale(1.05) !important;
 }
 
-.msg {
-    margin: 10px;
+.msg, .searchBar {
+    margin: 50px;
 }
 
 h1, h4 {
