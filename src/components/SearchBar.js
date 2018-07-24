@@ -6,7 +6,7 @@ const SearchBar = (props) => {
                 <input 
                     value={props.value}
                     type="text"
-                    onChange={props.onChange}
+                    onChange={props.setNewState}
                     placeholder="Enter a movie title..."
                 />
                 <i className="search icon"></i>
