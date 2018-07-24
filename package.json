@@ -2,6 +2,7 @@
   "name": "react-container-components-lab",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://albertcarreras.github.io/nyt-movie-reviews",
   "devDependencies": {
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
@@ -34,6 +35,8 @@
     "test": "mocha -w test/helpers.js test/*.js",
     "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "test:watch": "npm run test -- --watch",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
