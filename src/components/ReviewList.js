@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import UUID from 'uuid'
 
 //components
 import Review from './Review';
@@ -8,7 +7,7 @@ import Review from './Review';
 const MovieReviews = (props) => {
 
     function loaded() {
-        if (props.array.length === 0) {
+        if (props.reviews === undefined) {
             return (
                 <div className="review">
                     <p>{props.message}</p>
@@ -21,9 +20,9 @@ const MovieReviews = (props) => {
     }
 
     function buildList() {
-        return props.array.map( function(review) {
+        return props.reviews.map( function(review) {
             return (
-                <Fragment key={UUID()}> 
+                <Fragment key={review.link.url}> 
                     <Review review={review}/>
                 </Fragment> 
 

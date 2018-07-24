@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import UUID from 'uuid'
 
 const Review = (props) => {
 
@@ -18,7 +17,7 @@ const Review = (props) => {
     }
 
     return (
-        <div key={UUID()} className="card">
+        <div key={props.review.link.url} className="card">
             <div className="image">
                 {imgPresent(props.review)}
             </div>
