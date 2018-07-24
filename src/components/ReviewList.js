@@ -16,15 +16,22 @@ const MovieReviews = (props) => {
             )
         })
     }
-    
+
     function loaded() {
         if (props.reviews === undefined) {
             return (
-                <div className="review">
-                    <p>{props.message}</p>
+                <div className="msg">
+                    <p>LOADING.</p>
                 </div> 
             )
         } 
+        else if (props.reviews.length === 0) {
+            return (
+                <div className="msg">
+                    <p>Sorry, we could not find any results for your search.</p>
+                </div> 
+            )
+        }
         else {
             return buildList()
         }

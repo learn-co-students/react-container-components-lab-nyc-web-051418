@@ -22,7 +22,7 @@ class App extends Component {
         }
     }
 
-    returnDisplay = (header, stateItem, msg) => {
+    returnDisplay = (header, stateItem) => {
         return (
             <Fragment>
                 <h4 className="ui horizontal divider header">
@@ -31,7 +31,6 @@ class App extends Component {
                 </h4>
                 <ReviewList 
                     reviews={stateItem}
-                    message={msg}
                 />
             </Fragment>
         )
@@ -39,10 +38,10 @@ class App extends Component {
 
     selectDisplay = () => {
         if (this.state.searchTerm === "") {
-        return this.returnDisplay("Latests Movie Reviews", this.state.latestReviews, "LOADING")
+        return this.returnDisplay("Latests Movie Reviews", this.state.latestReviews)
         } 
         else {
-        return this.returnDisplay("Search Reviews", this.state.searchedReviews, "No results")
+        return this.returnDisplay("Search Reviews", this.state.searchedReviews)
         }
     }  
 

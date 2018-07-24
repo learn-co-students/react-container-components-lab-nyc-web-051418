@@ -6,6 +6,10 @@
     transform: scale(1.05) !important;
 }
 
+.msg {
+    margin: 10px;
+}
+
 h1, h4 {
     font-family: Domine !important;
 }
