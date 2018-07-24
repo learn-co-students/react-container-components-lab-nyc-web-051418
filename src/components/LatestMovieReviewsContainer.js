@@ -7,7 +7,7 @@ class LatestMovieReviewsContainer extends Component {
 
     constructor(props){
         super(props)
-        this.key = 'c4c50c9ebc8f4db5a0c071c9de2c6d68'
+        this.key = process.env.REACT_APP_API_KEY
         this.url = `https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=${this.key}`
         
         this.state = {
