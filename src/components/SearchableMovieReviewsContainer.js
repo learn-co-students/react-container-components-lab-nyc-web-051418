@@ -32,7 +32,7 @@ class SearchableMovieReviewsContainer extends Component {
           <input id='search-input' type="text" style={{width: 300}} onChange={this.handleSearchInputChange} />
           <button type="submit">Submit</button>
         </form>
-        {this.state.reviews.length > 0 && <h2>Movie Review By Search:</h2>}
+        {this.state.reviews.length > 0 && <h2>Search Results:</h2>}
         <MovieReviews reviews={this.state.reviews} />
       </div>
     );
