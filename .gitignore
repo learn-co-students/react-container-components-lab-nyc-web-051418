@@ -49,6 +49,3 @@ yarn.lock
 
 # DS_Store
 .DS_Store
-
-# api keys
-.env

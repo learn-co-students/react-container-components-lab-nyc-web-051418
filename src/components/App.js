@@ -13,7 +13,6 @@ class App extends Component {
 
     constructor (props) {
         super(props)
-        this.key = process.env.REACT_APP_API_KEY
         this.url = `https://nyt-movie-reviews-api.herokuapp.com/`
         this.state = {
             searchTerm: "",
