@@ -58,7 +58,7 @@ class App extends Component {
 
     fetchSearch = (searchedTerm) => {
         let url = 
-        `https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${this.key}&query=${searchedTerm}`
+        "https://nyt-movie-reviews-api.herokuapp.com/reviews"
         
         if (searchedTerm === ""){
             return this.setState({"searchedReviews": []}) 
