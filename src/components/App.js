@@ -14,7 +14,7 @@ class App extends Component {
     constructor (props) {
         super(props)
         this.key = process.env.REACT_APP_API_KEY
-        this.url = `https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=${this.key}`
+        this.url = `https://nyt-movie-reviews-api.herokuapp.com/`
         this.state = {
             searchTerm: "",
             latestReviews: [],
@@ -46,7 +46,7 @@ class App extends Component {
     }  
 
     componentDidMount() {
-        fetch(this.url)
+        fetch(this.url+'lastreviews')
         .then(r=>r.json())
         .then(apiArray => this.setState({ latestReviews: apiArray.results }))
     }
@@ -58,18 +58,18 @@ class App extends Component {
 
     fetchSearch = (searchedTerm) => {
         let url = 
-        "https://nyt-movie-reviews-api.herokuapp.com/reviews"
+        `https://nyt-movie-reviews-api.herokuapp.com/searchreviews?search=${searchedTerm}`
         
         if (searchedTerm === ""){
             return this.setState({"searchedReviews": []}) 
         }
 
-        _.debounce(
-            () => 
+        _.debounce( () => 
             fetch(encodeURI(url))
-             .then(r=>r.json())
+             .then(r=> r.json())
              .then(r => this.setState({"searchedReviews": r.results}))
-        , 300).call(this)
+            , 300).call(this)
+        
     }
 
     render() {
