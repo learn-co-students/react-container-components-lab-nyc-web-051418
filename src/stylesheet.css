@@ -1,0 +1,15 @@
+.app {
+    margin: 20px;
+}
+
+.card:hover {
+    transform: scale(1.05) !important;
+}
+
+.msg, .searchBar {
+    margin: 50px;
+}
+
+h1, h4 {
+    font-family: Domine !important;
+}
